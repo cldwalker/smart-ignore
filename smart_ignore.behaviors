@@ -1,0 +1,2 @@
+{:+ {:app [(:lt.objs.plugins/load-js "smart_ignore_compiled.js")]
+     :smart-ignore.hello [:lt.plugins.smart-ignore/on-close-destroy]}}

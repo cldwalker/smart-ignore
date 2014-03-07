@@ -1,0 +1,6 @@
+{:name "smart_ignore"
+ :version "0.0.1"
+ :author ""
+ :source ""
+ :desc ""
+ :behaviors "smart_ignore.behaviors"}
