@@ -3,9 +3,19 @@
  "compiled.map",
  "sources":
  ["src/lt/plugins/smart_ignore.cljs"],
- "lineCount":12,
+ "lineCount":40,
  "mappings":
- ";AAAA;;;;;;AAKA,AAAA,AAAAA,kDAAA,8CAAA,ZAEyBE,MAAKC,MACR,wBAAA,xBAACC;AACD,OAAMC,YAAWH,MAAKC;;AAJ5C,AAAAF,mCAAA,0HAAA,6DAAAD,gDAAA,6DAAA,iFAAA;AAOA",
+ ";AAAA;;;;;;;;;;;;;;;;AAWA,iDAAA,uCAAA,xFAAMA,kFAAqBC,MACzB,kDAAA,9CAAMC,SAAO,AAACC,+BAAaF,MACzB,IAAAG,sDAAAA,cAAA,EAAA,CAAAA,WAAA,OAAA,KAAA,AAAA,yFAAAA,cAAAA,cAAA,EAAA,CAAAA,eAAA,OAAA,lOAAS,AAACC,kCAAgBJ,qMAEjB,AAAA;kBAAAK,iBAAA,AAAE,sCAAAA,gBAAA,/CAACC;;6BAFZH,cAAA,EAAA,CAAAA,eAAA,OAAA,zDAESA,8DACA,AAACI,wBAAI;4BAAA,VAAKC,UACH,oBAAI,AAACC,mCAAW,AAACC,6BAAWT,OAAOO;CACjC,8CAAA,xBAAKA;;CAAcA;;;mBALrCL,cAAA,EAAA,CAAAA,eAAA,OAAA,oEAAA,AAAAA,7HAGSA,8DAGA,iDAAAA,jDAACI,wBAAII;;AAElB,gDAAA,qCAAA,rFAAMC,gFAAuBC,KAC3B,+DAAA,3DAAMC,YAAU,iCAAA,jCAACJ,6BAAWG,kBAC1B,oBAAM,AAACE,sCAAcD;CAArB,AACE,mVAAA,/UAAME,WAAS,mEAAA,nEAACV,+BAAQ,AAAUW,8CAC5BC,OAAI,AAACnB,yDAAoBe,eACzBK,yEAAiB,AAACC,4BAAW,AAACC,wBAAIH,MAAK,AAACG,wBAAIL,3GAC3BM,lCACA,8BAAA,IAAA,lCAACC,0JACtB,AAAMN,+BAAqB,KAAAO,OAAYL;AACvC,+CAAA,xCAACM;;CAPL;;;AASJ,AAAA,AAAAC,kDAAA,8CAAA,ZAEyBE,MAAKC,MAAM,OAACjB,wDAAsBiB;;AAF3D,AAAAF,mCAAA,0HAAA,6DAAAD,gDAAA,6DAAA,iFAAA;AAKA",
  "names":
- ["lt.plugins.smart-ignore/__BEH__watch-add-folder",
-  "lt.object/behavior*", "this", "path", "cljs.core/prn", "js/console"]}
+ ["lt.plugins.smart-ignore/file->ignore-regexs", "file", "parent",
+  "lt.objs.files/parent", "G__8247", "lt.objs.files/open-sync",
+  "p1__8245#", "clojure.string/split", "cljs.core/map", "relative",
+  "lt.objs.files/dir?", "lt.objs.files/join",
+  "goog.string/regExpEscape",
+  "lt.plugins.smart-ignore/update-ignore-pattern", "dir", "gitignore",
+  "lt.objs.files/exists?", "existing", "lt.objs.files/ignore-pattern",
+  "new", "new-pattern", "clojure.set/union", "cljs.core/set",
+  "cljs.core/sort", "clojure.string/join", "js/RegExp",
+  "lt.objs.notifos/set-msg!",
+  "lt.plugins.smart-ignore/__BEH__watch-add-folder",
+  "lt.object/behavior*", "this", "path"]}
