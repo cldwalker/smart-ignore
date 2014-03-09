@@ -1,4 +1,4 @@
 {:+ {:app [(:lt.objs.plugins/load-js "smart_ignore_compiled.js")
-           #_(:lt.objs.files/file.ignore-pattern "(^\\..*)|\\.class$|target/|svn|cvs|\\.git|\\.pyc|~|\\.swp|\\.jar|.DS_Store|\\.nrepl-port")]
+           :lt.plugins.smart-ignore/post-init]
      :workspace [:lt.plugins.smart-ignore/watch-add-folder]
      :recent-workspace [:lt.plugins.smart-ignore/watch-workspace-select]}}

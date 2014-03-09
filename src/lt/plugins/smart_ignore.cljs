@@ -8,10 +8,6 @@
             [goog.string :as gs])
   (:require-macros [lt.macros :refer [defui behavior]]))
 
-
-;; TODO: Ensure this saves a user-configured pattern
-(def default-ignore-pattern  (js/RegExp. "(^\\..*)|\\.class$|target/|svn|cvs|\\.git|\\.pyc|~|\\.swp|\\.jar|.DS_Store|\\.nrepl-port")  #_files/ignore-pattern)
-
 (defn file->ignore-regexs [file]
   (let [parent (files/parent file)]
     (some->> (files/open-sync file)
@@ -33,10 +29,12 @@
         (set! files/ignore-pattern (js/RegExp. new-pattern))
         (notifos/set-msg! "Updated ignore-pattern.")))))
 
-(defn multi-update-ignore-pattern [dirs]
-  (set! files/ignore-pattern default-ignore-pattern)
-  (doseq [dir dirs]
-    (update-ignore-pattern dir)))
+(defn reset-ignore-pattern-for-current-workspace []
+  (let [dirs (:folders @workspace/current-ws)]
+    (prn "Setting" dirs)
+    (set! files/ignore-pattern default-ignore-pattern)
+    (doseq [dir dirs]
+      (update-ignore-pattern dir))))
 
 (behavior ::watch-add-folder
           :triggers #{:add.folder!}
@@ -48,13 +46,21 @@
 ;; behaviors not consistently reloading.
 (behavior ::watch-workspace-select
           :triggers #{:select!}
-          :reaction (fn [this]
-                      (multi-update-ignore-pattern (:folders @workspace/current-ws))))
+          :reaction reset-ignore-pattern-for-current-workspace)
+
+;; Do a :post-init in case user.behaviors or any plugins set ignore-pattern in :init
+(behavior ::post-init
+          :triggers #{:post-init}
+          :reaction (fn []
+                      (def default-ignore-pattern files/ignore-pattern)
+                      (reset-ignore-pattern-for-current-workspace)))
 
 
 (comment
   (def path "/Users/me/code/repo/bolt")
+  (update-ignore-pattern path)
   (file->ignore-regexs path)
   (lt.object/raise workspace/current-ws :add.folder! path)
   (lt.object/raise workspace/current-ws :remove.folder! path)
+  (prn default-ignore-pattern)
   (prn files/ignore-pattern))
