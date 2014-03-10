@@ -1,6 +1,6 @@
-{:name "smart_ignore"
- :version "0.0.1"
- :author ""
- :source ""
- :desc ""
+{:name "smart-ignore"
+ :version "0.1.0"
+ :author "Gabriel Horner"
+ :source "https://github.com/cldwalker/smart-ignore"
+ :desc "Updates file.ignore-pattern based on current directories and their gitignores."
  :behaviors "smart_ignore.behaviors"}
