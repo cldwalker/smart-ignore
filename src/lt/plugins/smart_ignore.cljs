@@ -5,6 +5,7 @@
             [clojure.set :as cset]
             [clojure.string :as s]
             [lt.objs.notifos :as notifos]
+            [lt.objs.command :as cmd]
             [goog.string :as gs])
   (:require-macros [lt.macros :refer [defui behavior]]))
 
@@ -26,19 +27,21 @@
             new-pattern (->> (cset/union (set new) (set existing))
                              sort
                              (s/join "|"))]
-        (set! files/ignore-pattern (js/RegExp. new-pattern))
-        (notifos/set-msg! "Updated ignore-pattern.")))))
+        (set! files/ignore-pattern (js/RegExp. new-pattern))))))
 
 (defn reset-ignore-pattern-for-current-workspace []
   (let [dirs (:folders @workspace/current-ws)]
-    (prn "Setting" dirs)
+    (.log js/console (str "Setting ignore-pattern for " (s/join ", " dirs)))
     (set! files/ignore-pattern default-ignore-pattern)
     (doseq [dir dirs]
-      (update-ignore-pattern dir))))
+      (update-ignore-pattern dir))
+    (notifos/set-msg! "Updated ignore-pattern.")))
 
 (behavior ::watch-add-folder
           :triggers #{:add.folder!}
-          :reaction (fn [this path] (update-ignore-pattern path)))
+          :reaction (fn [this path]
+                      (update-ignore-pattern path)
+                      (notifos/set-msg! "Updated ignore-pattern.")))
 
 ;; This needs to be post-init in order for current workspace folders to be present.
 (behavior ::post-init
@@ -62,11 +65,12 @@
           :triggers #{:behaviors.refreshed}
           :reaction reset-ignore-pattern-for-current-workspace)
 
+(cmd/command {:command :ltfiles.reset-workspace-ignore-pattern
+              :desc "smart-ignore: Resets ignore-pattern for workspace"
+              :exec reset-ignore-pattern-for-current-workspace})
+
 (comment
-  (def path "/Users/me/code/repo/bolt")
   (update-ignore-pattern path)
-  (file->ignore-regexs path)
   (lt.object/raise workspace/current-ws :add.folder! path)
   (lt.object/raise workspace/current-ws :remove.folder! path)
-  (prn default-ignore-pattern)
   (prn files/ignore-pattern))
