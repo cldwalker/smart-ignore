@@ -21,6 +21,8 @@ Please report them [on github](http://github.com/cldwalker/smart-ignore/issues).
 
 [See here](http://tagaholic.me/contributing.html) for contributing guidelines.
 
+I'm open to pull requests to support ignore files from other VCSs.
+
 ## TODO
 * When a folder is removed, update ignore-pattern to remove unique files in that files .gitignore.
   This will require tracking ignore-regexs per folder.
