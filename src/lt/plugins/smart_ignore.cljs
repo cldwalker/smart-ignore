@@ -40,21 +40,27 @@
           :triggers #{:add.folder!}
           :reaction (fn [this path] (update-ignore-pattern path)))
 
-;; Reset and update ignore pattern when we switch workspaces.
-;; I'm doing this instead of hooking into workspace.behaviors which proved cumbersome
-;; to work with when updating the same behavior multiple times i.e. juggling diffs and
-;; behaviors not consistently reloading.
-(behavior ::watch-workspace-select
-          :triggers #{:select!}
-          :reaction reset-ignore-pattern-for-current-workspace)
-
-;; Do a :post-init in case user.behaviors or any plugins set ignore-pattern in :init
+;; This needs to be post-init in order for current workspace folders to be present.
 (behavior ::post-init
           :triggers #{:post-init}
           :reaction (fn []
                       (def default-ignore-pattern files/ignore-pattern)
                       (reset-ignore-pattern-for-current-workspace)))
 
+;; I'm doing this instead of hooking into workspace.behaviors which proved cumbersome
+;; to work with when updating the same behavior multiple times i.e. juggling diffs and
+;; behaviors not consistently reloading.
+;;
+;; This behavior handles at least two important cases:
+;; 1. Whenever anything updates user.behaviors, ensure that our ignore-pattern is not overridden.
+;; 2. Whenever we switch workspaces, ensure ignore-pattern is for the current folders.
+;;    I was hooking into :recent.workspace/select! before but no need with this hook.
+;;
+;; Note: Updating user.behaviors to have a new default ignore-pattern will not take effect here.
+;; This is on purpose, as resetting default-ignore-pattern here is incorrect behavior for case 2.
+(behavior ::behaviors-refreshed
+          :triggers #{:behaviors.refreshed}
+          :reaction reset-ignore-pattern-for-current-workspace)
 
 (comment
   (def path "/Users/me/code/repo/bolt")
