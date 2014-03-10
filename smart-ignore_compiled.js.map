@@ -1,0 +1,30 @@
+{"version":3,
+ "file":
+ "compiled.map",
+ "sources":
+ ["src/lt/plugins/smart_ignore.cljs"],
+ "lineCount":99,
+ "mappings":
+ ";AAAA;;;;;;;;;;;;;;;;;;AAWA,iDAAA,uCAAA,xFAAMA,kFAAqBC,MACzB,kDAAA,9CAAMC,SAAO,AAACC,+BAAaF,MACzB,IAAAG,sDAAAA,cAAA,EAAA,CAAAA,WAAA,OAAA,KAAA,AAAA,yFAAAA,cAAAA,cAAA,EAAA,CAAAA,eAAA,OAAA,lOAAS,AAACC,kCAAgBJ,qMAEjB,AAAA;kBAAAK,iBAAA,AAAE,sCAAAA,gBAAA,/CAACC;;6BAFZH,cAAA,EAAA,CAAAA,eAAA,OAAA,zDAESA,8DACA,AAACI,wBAAI;4BAAA,VAAKC,UACH,oBAAI,AAACC,mCAAW,AAACC,6BAAWT,OAAOO;CACjC,8CAAA,xBAAKA;;CAAcA;;;mBALrCL,cAAA,EAAA,CAAAA,eAAA,OAAA,oEAAA,AAAAA,7HAGSA,8DAGA,iDAAAA,jDAACI,wBAAII;;AAElB,gDAAA,qCAAA,rFAAMC,gFAAuBC,KAC3B,+DAAA,3DAAMC,YAAU,iCAAA,jCAACJ,6BAAWG,kBAC1B,oBAAM,AAACE,sCAAcD;CAArB,AACE,mVAAA,/UAAME,WAAS,mEAAA,nEAACV,+BAAQ,AAAUW,8CAC5BC,OAAI,AAACnB,yDAAoBe,eACzBK,yEAAiB,AAACC,4BAAW,AAACC,wBAAIH,MAAK,AAACG,wBAAIL,3GAC3BM,lCACA,8BAAA,IAAA,lCAACC,0JACtB,OAAMN,+BAAqB,KAAAO,OAAYL;;CAN3C;;;AAQJ,qEAAA,uDAAA,5HAAMM,4HACJ,6JAAA,zJAAMC,OAAK,AAAA,yFAAU,AAAAC,0BAACC,+BACpB,AAAMC,YAAW,eAAA,6CAAmC,8BAAA,9BAACN,mCAAYG;AACjE,AAAMT,+BAAqBa;AAC3B,IAAAC,iBAAA,AAAAC,kCAAAC,mBAAA,SAAAC,mBAAA,MAAAC,eAAA,9EAAYT;AAAZ,AAAA,GAAA,AAAA,CAAAS,eAAAD;CAAA,eAAA,AAAAE,yBAAAH,iBAAAE,cAAA,AAAA,nEAAQtB,mEACN,AAACD,wDAAsBC;AADzB;cAAAkB;cAAAE;cAAAC;cAAA,CAAAC,eAAA;;;;;;;;CAAA,IAAAE,0BAAA,AAAAL,wBAAAD,gBAAA,AAAA,GAAAM;CAAA,AAAA,IAAAN,qBAAAM,wBAAA,AAAA,GAAA,AAAAC,uCAAAP;CAAA,IAAAQ,uBAAA,AAAAC,gCAAAT,oBAAA,AAAA;cAAA,AAAAU,+BAAAV;cAAAQ;cAAA,AAAAG,0BAAAH;cAAA;;;;;;;;CAAA,eAAA,AAAAI,0BAAAZ,oBAAA,AAAA,zDAAQlB,yDACN,AAACD,wDAAsBC;AADzB;cAAA,AAAA+B,yBAAAb;cAAA;cAAA;cAAA;;;;;;;;;CAAA;;;;AAEA,+CAAA,xCAACc;;AAEL,AAAA,AAAAC,kDAAA,8CAAA,ZAEyBE,MAAKC,MACR,AAACrC,wDAAsBqC;AACvB,+CAAA,xCAACJ;;AAJvB,AAAAE,mCAAA,0HAAA,6DAAAD,gDAAA,6DAAA,iFAAA;AAOA,AAAA,AAAAI,2CAAA,6BAAA,AAGsB,AAAKpB,iDAAuBb;AAC5B,OAACQ;;AAJvB,AAAAsB,mCAAA,4GAAA,6DAAAG,yCAAA,6DAAA,iFAAA;AAiBA,AAAAH,mCAAA,gIAAA,gIAAA,6DAAA,iFAAA,jNAEoBtB;AAEpB,kCAAA,2CAAA,2DAAA,yHAAA,qDAAA,oDAAA,1WAAC0B,+ZAEmB1B;AAEpB",
+ "names":
+ ["lt.plugins.smart-ignore/file->ignore-regexs", "file", "parent",
+  "lt.objs.files/parent", "G__8275", "lt.objs.files/open-sync",
+  "p1__8273#", "clojure.string/split", "cljs.core/map", "relative",
+  "lt.objs.files/dir?", "lt.objs.files/join",
+  "goog.string/regExpEscape",
+  "lt.plugins.smart-ignore/update-ignore-pattern", "dir", "gitignore",
+  "lt.objs.files/exists?", "existing", "lt.objs.files/ignore-pattern",
+  "new", "new-pattern", "clojure.set/union", "cljs.core/set",
+  "cljs.core/sort", "clojure.string/join", "js/RegExp",
+  "lt.plugins.smart-ignore/reset-ignore-pattern-for-current-workspace",
+  "dirs", "cljs.core/deref", "lt.objs.workspace/current-ws",
+  "js/console", "lt.plugins.smart-ignore/default-ignore-pattern",
+  "seq__8280", "cljs.core/seq", "chunk__8281", "count__8282",
+  "i__8283", "cljs.core/-nth", "temp__4092__auto__",
+  "cljs.core/chunked-seq?", "c__7497__auto__", "cljs.core/chunk-first",
+  "cljs.core/chunk-rest", "cljs.core/count", "cljs.core/first",
+  "cljs.core/next", "lt.objs.notifos/set-msg!",
+  "lt.plugins.smart-ignore/__BEH__watch-add-folder",
+  "lt.object/behavior*", "this", "path",
+  "lt.plugins.smart-ignore/__BEH__post-init",
+  "lt.objs.command/command"]}
