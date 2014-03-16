@@ -17,7 +17,7 @@
              (map (fn [relative]
                     (if (files/dir? (files/join parent relative))
                       (str relative "/") relative)))
-             (map gs/regExpEscape))))
+             (map #(str "^" (gs/regExpEscape %) "$")))))
 
 (defn update-ignore-pattern [dir]
   (let [gitignore (files/join dir ".gitignore")]

@@ -17,17 +17,20 @@ goog.require('clojure.set');
 goog.require('goog.string');
 goog.require('lt.objs.command');
 goog.require('clojure.set');
-lt.plugins.smart_ignore.file__GT_ignore_regexs = (function file__GT_ignore_regexs(file){var parent = lt.objs.files.parent.call(null,file);var G__8275 = lt.objs.files.open_sync.call(null,file);var G__8275__$1 = (((G__8275 == null))?null:new cljs.core.Keyword(null,"content","content",1965434859).cljs$core$IFn$_invoke$arity$1(G__8275));var G__8275__$2 = (((G__8275__$1 == null))?null:((function (G__8275,G__8275__$1){
-return (function (p1__8273_SHARP_){return clojure.string.split.call(null,p1__8273_SHARP_,/\n/);
-});})(G__8275,G__8275__$1))
-.call(null,G__8275__$1));var G__8275__$3 = (((G__8275__$2 == null))?null:cljs.core.map.call(null,((function (G__8275,G__8275__$1,G__8275__$2){
+lt.plugins.smart_ignore.file__GT_ignore_regexs = (function file__GT_ignore_regexs(file){var parent = lt.objs.files.parent.call(null,file);var G__8346 = lt.objs.files.open_sync.call(null,file);var G__8346__$1 = (((G__8346 == null))?null:new cljs.core.Keyword(null,"content","content",1965434859).cljs$core$IFn$_invoke$arity$1(G__8346));var G__8346__$2 = (((G__8346__$1 == null))?null:((function (G__8346,G__8346__$1){
+return (function (p1__8343_SHARP_){return clojure.string.split.call(null,p1__8343_SHARP_,/\n/);
+});})(G__8346,G__8346__$1))
+.call(null,G__8346__$1));var G__8346__$3 = (((G__8346__$2 == null))?null:cljs.core.map.call(null,((function (G__8346,G__8346__$1,G__8346__$2){
 return (function (relative){if(cljs.core.truth_(lt.objs.files.dir_QMARK_.call(null,lt.objs.files.join.call(null,parent,relative))))
 {return [cljs.core.str(relative),cljs.core.str("/")].join('');
 } else
 {return relative;
 }
-});})(G__8275,G__8275__$1,G__8275__$2))
-,G__8275__$2));var G__8275__$4 = (((G__8275__$3 == null))?null:cljs.core.map.call(null,goog.string.regExpEscape,G__8275__$3));return G__8275__$4;
+});})(G__8346,G__8346__$1,G__8346__$2))
+,G__8346__$2));var G__8346__$4 = (((G__8346__$3 == null))?null:cljs.core.map.call(null,((function (G__8346,G__8346__$1,G__8346__$2,G__8346__$3){
+return (function (p1__8344_SHARP_){return [cljs.core.str("^"),cljs.core.str(goog.string.regExpEscape(p1__8344_SHARP_)),cljs.core.str("$")].join('');
+});})(G__8346,G__8346__$1,G__8346__$2,G__8346__$3))
+,G__8346__$3));return G__8346__$4;
 });
 lt.plugins.smart_ignore.update_ignore_pattern = (function update_ignore_pattern(dir){var gitignore = lt.objs.files.join.call(null,dir,".gitignore");if(cljs.core.truth_(lt.objs.files.exists_QMARK_.call(null,gitignore)))
 {var existing = clojure.string.split.call(null,lt.objs.files.ignore_pattern.source,/\|/);var new$ = lt.plugins.smart_ignore.file__GT_ignore_regexs.call(null,gitignore);var new_pattern = clojure.string.join.call(null,"|",cljs.core.sort.call(null,clojure.set.union.call(null,cljs.core.set.call(null,new$),cljs.core.set.call(null,existing))));return lt.objs.files.ignore_pattern = (new RegExp(new_pattern));
@@ -37,45 +40,45 @@ lt.plugins.smart_ignore.update_ignore_pattern = (function update_ignore_pattern(
 });
 lt.plugins.smart_ignore.reset_ignore_pattern_for_current_workspace = (function reset_ignore_pattern_for_current_workspace(){var dirs = new cljs.core.Keyword(null,"folders","folders",4625622327).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,lt.objs.workspace.current_ws));console.log([cljs.core.str("Setting ignore-pattern for "),cljs.core.str(clojure.string.join.call(null,", ",dirs))].join(''));
 lt.objs.files.ignore_pattern = lt.plugins.smart_ignore.default_ignore_pattern;
-var seq__8280_8284 = cljs.core.seq.call(null,dirs);var chunk__8281_8285 = null;var count__8282_8286 = 0;var i__8283_8287 = 0;while(true){
-if((i__8283_8287 < count__8282_8286))
-{var dir_8288 = cljs.core._nth.call(null,chunk__8281_8285,i__8283_8287);lt.plugins.smart_ignore.update_ignore_pattern.call(null,dir_8288);
+var seq__8351_8355 = cljs.core.seq.call(null,dirs);var chunk__8352_8356 = null;var count__8353_8357 = 0;var i__8354_8358 = 0;while(true){
+if((i__8354_8358 < count__8353_8357))
+{var dir_8359 = cljs.core._nth.call(null,chunk__8352_8356,i__8354_8358);lt.plugins.smart_ignore.update_ignore_pattern.call(null,dir_8359);
 {
-var G__8289 = seq__8280_8284;
-var G__8290 = chunk__8281_8285;
-var G__8291 = count__8282_8286;
-var G__8292 = (i__8283_8287 + 1);
-seq__8280_8284 = G__8289;
-chunk__8281_8285 = G__8290;
-count__8282_8286 = G__8291;
-i__8283_8287 = G__8292;
+var G__8360 = seq__8351_8355;
+var G__8361 = chunk__8352_8356;
+var G__8362 = count__8353_8357;
+var G__8363 = (i__8354_8358 + 1);
+seq__8351_8355 = G__8360;
+chunk__8352_8356 = G__8361;
+count__8353_8357 = G__8362;
+i__8354_8358 = G__8363;
 continue;
 }
 } else
-{var temp__4092__auto___8293 = cljs.core.seq.call(null,seq__8280_8284);if(temp__4092__auto___8293)
-{var seq__8280_8294__$1 = temp__4092__auto___8293;if(cljs.core.chunked_seq_QMARK_.call(null,seq__8280_8294__$1))
-{var c__7497__auto___8295 = cljs.core.chunk_first.call(null,seq__8280_8294__$1);{
-var G__8296 = cljs.core.chunk_rest.call(null,seq__8280_8294__$1);
-var G__8297 = c__7497__auto___8295;
-var G__8298 = cljs.core.count.call(null,c__7497__auto___8295);
-var G__8299 = 0;
-seq__8280_8284 = G__8296;
-chunk__8281_8285 = G__8297;
-count__8282_8286 = G__8298;
-i__8283_8287 = G__8299;
+{var temp__4092__auto___8364 = cljs.core.seq.call(null,seq__8351_8355);if(temp__4092__auto___8364)
+{var seq__8351_8365__$1 = temp__4092__auto___8364;if(cljs.core.chunked_seq_QMARK_.call(null,seq__8351_8365__$1))
+{var c__7497__auto___8366 = cljs.core.chunk_first.call(null,seq__8351_8365__$1);{
+var G__8367 = cljs.core.chunk_rest.call(null,seq__8351_8365__$1);
+var G__8368 = c__7497__auto___8366;
+var G__8369 = cljs.core.count.call(null,c__7497__auto___8366);
+var G__8370 = 0;
+seq__8351_8355 = G__8367;
+chunk__8352_8356 = G__8368;
+count__8353_8357 = G__8369;
+i__8354_8358 = G__8370;
 continue;
 }
 } else
-{var dir_8300 = cljs.core.first.call(null,seq__8280_8294__$1);lt.plugins.smart_ignore.update_ignore_pattern.call(null,dir_8300);
+{var dir_8371 = cljs.core.first.call(null,seq__8351_8365__$1);lt.plugins.smart_ignore.update_ignore_pattern.call(null,dir_8371);
 {
-var G__8301 = cljs.core.next.call(null,seq__8280_8294__$1);
-var G__8302 = null;
-var G__8303 = 0;
-var G__8304 = 0;
-seq__8280_8284 = G__8301;
-chunk__8281_8285 = G__8302;
-count__8282_8286 = G__8303;
-i__8283_8287 = G__8304;
+var G__8372 = cljs.core.next.call(null,seq__8351_8365__$1);
+var G__8373 = null;
+var G__8374 = 0;
+var G__8375 = 0;
+seq__8351_8355 = G__8372;
+chunk__8352_8356 = G__8373;
+count__8353_8357 = G__8374;
+i__8354_8358 = G__8375;
 continue;
 }
 }
