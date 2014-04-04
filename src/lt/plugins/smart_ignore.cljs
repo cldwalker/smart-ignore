@@ -43,10 +43,14 @@
                       (update-ignore-pattern path)
                       (notifos/set-msg! "Updated ignore-pattern.")))
 
+;; Ensure a default
+(def default-ignore-pattern files/ignore-pattern)
+
 ;; This needs to be post-init in order for current workspace folders to be present.
 (behavior ::post-init
           :triggers #{:post-init}
           :reaction (fn []
+                      ;; Reset in case user has redefined files/ignore-pattern in user.behaviors
                       (def default-ignore-pattern files/ignore-pattern)
                       (reset-ignore-pattern-for-current-workspace)))
 
