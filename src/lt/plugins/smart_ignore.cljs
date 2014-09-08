@@ -14,10 +14,15 @@
     (some->> (files/open-sync file)
              :content
              (#(s/split % #"\n"))
+             (remove #(re-find #"^\s*#|^\s*$" %)) ;;ignore comments and whitespace
+             (map #(s/replace-first % #"^/" ""))
              (map (fn [relative]
-                    (if (files/dir? (files/join parent relative))
+                    (if (and (files/dir? (files/join parent relative))
+                             (not (.endsWith relative "/")))
                       (str relative "/") relative)))
-             (map #(str "^" (gs/regExpEscape %) "$")))))
+             ;; Only return basename since ignore-pattern
+             ;; is used by walkdir2.js which only matches against basenames
+             (map #(str "^" (gs/regExpEscape (re-find #"[^/]+/?$" %)) "$")))))
 
 (defn update-ignore-pattern [dir]
   (let [gitignore (files/join dir ".gitignore")]
