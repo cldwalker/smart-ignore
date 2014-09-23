@@ -1,4 +1,3 @@
 {:+ {:app [(:lt.objs.plugins/load-js "smart-ignore_compiled.js")
-           :lt.plugins.smart-ignore/post-init
            :lt.plugins.smart-ignore/behaviors-refreshed]
      :workspace [:lt.plugins.smart-ignore/watch-add-folder]}}

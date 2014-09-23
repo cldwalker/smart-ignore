@@ -36,6 +36,8 @@
         (set! files/ignore-pattern (js/RegExp. new-pattern))))))
 
 (defn reset-ignore-pattern-for-current-workspace []
+  (defonce default-ignore-pattern files/ignore-pattern)
+
   (let [dirs (:folders @workspace/current-ws)]
     (.log js/console (str "Setting ignore-pattern for " (s/join ", " dirs)))
     (set! files/ignore-pattern default-ignore-pattern)
@@ -49,24 +51,14 @@
                       (update-ignore-pattern path)
                       (notifos/set-msg! "Updated ignore-pattern.")))
 
-;; Ensure a default
-(def default-ignore-pattern files/ignore-pattern)
-
-;; This needs to be post-init in order for current workspace folders to be present.
-(behavior ::post-init
-          :triggers #{:post-init}
-          :reaction (fn []
-                      ;; Reset in case user has redefined files/ignore-pattern in user.behaviors
-                      (def default-ignore-pattern files/ignore-pattern)
-                      (reset-ignore-pattern-for-current-workspace)))
-
 ;; I'm doing this instead of hooking into workspace.behaviors which proved cumbersome
 ;; to work with when updating the same behavior multiple times i.e. juggling diffs and
 ;; behaviors not consistently reloading.
 ;;
-;; This behavior handles at least two important cases:
-;; 1. Whenever anything updates user.behaviors, ensure that our ignore-pattern is not overridden.
-;; 2. Whenever we switch workspaces, ensure ignore-pattern is for the current folders.
+;; This behavior handles at least three important cases:
+;; 1. When LightTable first starts, set the ignore-pattern.
+;; 2. Whenever anything updates user.behaviors, ensure that our ignore-pattern is not overridden.
+;; 3. Whenever we switch workspaces, ensure ignore-pattern is for the current folders.
 ;;    I was hooking into :recent.workspace/select! before but no need with this hook.
 ;;
 ;; Note: Updating user.behaviors to have a new default ignore-pattern will not take effect here.
@@ -83,4 +75,4 @@
   (update-ignore-pattern path)
   (lt.object/raise workspace/current-ws :add.folder! path)
   (lt.object/raise workspace/current-ws :remove.folder! path)
-  (prn files/ignore-pattern))
+  (sort (clojure.string/split (.-source files/ignore-pattern) #"\|")))
