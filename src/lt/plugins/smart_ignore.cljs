@@ -20,9 +20,10 @@
                     (if (and (files/dir? (files/join parent relative))
                              (not (.endsWith relative "/")))
                       (str relative "/") relative)))
-             ;; Only return basename since ignore-pattern
-             ;; is used by walkdir2.js which only matches against basenames
-             (map #(str "^" (gs/regExpEscape (re-find #"[^/]+/?$" %)) "$")))))
+             ;; This can return non-basenames e.g. dir/file1 which isn't compatible with walkdir2.js.
+             ;; However, only returning basenames is too agressive to apply across multiple workspaces.
+             ;; Per-workspace ignores would resolve this.
+             (map #(str "^" (gs/regExpEscape %) "$")))))
 
 (defn update-ignore-pattern [dir]
   (let [gitignore (files/join dir ".gitignore")]
